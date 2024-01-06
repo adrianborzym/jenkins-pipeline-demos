@@ -24,9 +24,7 @@ pipeline {
         stage('Unit Test') {
             steps {
               dir('./m3/src') {
-                steps {
                     echo "Errors with dotnet versions..."
-                }
               }
             }
         }

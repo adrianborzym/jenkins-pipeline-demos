@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deploy'){
             steps {
-                echo "Deploing $VERIOSN and RC-V $VERSION_RC"
+                echo "Deploing $VERSION and RC-V $VERSION_RC"
             }
         }
     }

@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo "Sprawdzam zależności..."
                 sh '''
-                    get version
+                    git version
                     docker version
                 '''
             }

@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    parameters {
+        booleanParam(name: 'RC', defaultValue: false, description: 'Is this a Release Candidate?')
+    }
+    environment {
+        VERSION="0.1.2"
+        VERSION_RC="rc.2"
+    }
+    stages {
+        stage('Audit tools'){
+            steps {
+                echo "Sprawdzam zależności..."
+                sh '''
+                    git version
+                    docker version
+                '''
+            }
+        }
+        stage('Build'){
+            steps{
+                echo "Building version $VERSION with suffix: ${VERSION_RC}"
+            }
+        }
+        stage('Deploy'){
+            steps {
+                echo "Deploing $VERSION and RC-V $VERSION_RC"
+            }
+        }
+    }
+}
+

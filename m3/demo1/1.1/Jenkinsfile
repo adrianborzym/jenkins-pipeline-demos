@@ -8,10 +8,7 @@ pipeline {
         stage('Audit tools'){
             steps {
                 echo "Sprawdzam zależności..."
-                sh '''
-                    git version
-                    docker version
-                '''
+                getVersion()
             }
         }
         stage('Build'){
@@ -24,5 +21,13 @@ pipeline {
                 echo "Deploing $VERSION and RC-V $VERSION_RC"
             }
         }
+    }
+
+
+    void getVersion(){
+        sh '''
+            git version
+            docker version
+        '''
     }
 }

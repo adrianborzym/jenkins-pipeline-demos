@@ -24,10 +24,12 @@ pipeline {
     }
 
 
-    void getVersion(){
-        sh '''
-            git version
-            docker version
-        '''
-    }
+
+}
+
+void getVersion(){
+    sh '''
+        git version
+        docker version
+    '''
 }
